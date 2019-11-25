@@ -1,0 +1,127 @@
+﻿<Window x:Class="TestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="506.3" Width="849.6" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Image x:Key="MusicStaff" Source="Resources/MusicStaff.png"/>
+        <Image x:Key="SixteenthNote" Source="Resources/SixteenthNote.png"/>
+        <Image x:Key="SixteenthNoteReverse" Source="Resources/SixteenthNoteReverse.png"/>
+        <Image x:Key="EighthNote" Source="Resources/EighthNote.png"/>
+        <Image x:Key="EighthNoteReverse" Source="Resources/EighthNoteReverse.png"/>
+        <Image x:Key="QuarterNote" Source="Resources/QuarterNote.png"/>
+        <Image x:Key="QuarterNoteReverse" Source="Resources/QuarterNoteReverse.png"/>
+        <Image x:Key="HalfNote" Source="Resources/HalfNote.png"/>
+        <Image x:Key="HalfNoteReverse" Source="Resources/HalfNoteReverse.png"/>
+        <Image x:Key="WholeNote" Source="Resources/WholeNote.png"/>
+        <Image x:Key="TwoExtraBar" Source="Resources/TwoExtraBar.png"/>
+        <Image x:Key="OneExtraBar" Source="Resources/OneExtraBar.png"/>
+
+        <Image x:Key="PlayButton" Source="Resources/Icon/PlayButton.png"/>
+        <Image x:Key="StopButton" Source="Resources/Icon/StopButton.png"/>
+        <Image x:Key="PauseButton" Source="Resources/Icon/PauseButton.png"/>
+    </Window.Resources>
+    <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="843">
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="843" Margin="0,25,0,0">
+            <RadioButton x:Name="SixteenthToggle" Tag="0" Style="{StaticResource {x:Type ToggleButton}}" Width="20" Height="20" Checked="ToggleChecked">
+                <RadioButton.Background>
+                    <ImageBrush ImageSource="Resources/SixteenthNote.png" Stretch="Uniform"/>
+                </RadioButton.Background>
+            </RadioButton>
+            <RadioButton x:Name="EighthToggle" Tag="1" Style="{StaticResource {x:Type ToggleButton}}" Width="20" Height="20" Checked="ToggleChecked">
+                <RadioButton.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="Resources/EighthNote.png"/>
+                </RadioButton.Background>
+            </RadioButton>
+            <RadioButton x:Name="QuarterToggle" Tag="2" IsChecked="True" Style="{StaticResource {x:Type ToggleButton}}" Width="20" Height="20" Checked="ToggleChecked">
+                <RadioButton.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="Resources/QuarterNote.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform X="0.1"/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </RadioButton.Background>
+            </RadioButton>
+            <RadioButton x:Name="HalfToggle" Tag="3" Style="{StaticResource {x:Type ToggleButton}}" Width="20" Height="20" Checked="ToggleChecked">
+                <RadioButton.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="Resources/HalfNote.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform X="0.1"/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </RadioButton.Background>
+            </RadioButton>
+            <RadioButton x:Name="WholeToggle" Tag="4" Style="{StaticResource {x:Type ToggleButton}}" Width="20" Height="20" Checked="ToggleChecked">
+                <RadioButton.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="Resources/WholeNote.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform Y="-0.525" X="0.175"/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </RadioButton.Background>
+            </RadioButton>
+        </Menu>
+        <Canvas x:Name="MainCanvas" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="800" Margin="10,58,0,0">
+            <Grid Height="40" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="30">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resources/MusicStaff.png"/>
+                </Grid.Background>
+            </Grid>
+        </Canvas>
+        <Canvas x:Name="MainCanvas_Copy" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="800" Margin="10,158,0,0">
+            <Grid Height="40" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="30">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resources/MusicStaff.png"/>
+                </Grid.Background>
+            </Grid>
+        </Canvas>
+        <Canvas x:Name="MainCanvas_Copy1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="800" Margin="10,258,0,0">
+            <Grid Height="40" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="30">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resources/MusicStaff.png"/>
+                </Grid.Background>
+            </Grid>
+        </Canvas>
+        <Canvas x:Name="MainCanvas_Copy2" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="800" Margin="10,358,0,-58">
+            <Grid Height="40" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="30">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resources/MusicStaff.png"/>
+                </Grid.Background>
+            </Grid>
+        </Canvas>
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="843">
+            <Button x:Name="PlayButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Height="20" Click="PlayButtonClick" RenderTransformOrigin="0.89,0.67">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/Icon/PlayButton.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+        </Menu>
+    </Grid>
+</Window>
